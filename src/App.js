@@ -1,7 +1,22 @@
 import logo from './logo.svg';
 import './view/assets/css/App.css';
+import http from './http-common';
+import React, { useEffect } from 'react'
 
 function App() {
+
+  useEffect(() => {
+    testAxios()
+  })
+
+  function testAxios() {
+    http
+      .get("https://jsonplaceholder.typicode.com/todos/1")
+      .then((res) => {
+        console.log("api test => ", res.data);
+      })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
